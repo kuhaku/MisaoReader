@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>misao viewer</title>
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="fetch.js"></script>
+    <script>function post(){window.open('http://misao.on.arena.ne.jp/cgi-bin/bbs.cgi', '');}</script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body bgcolor="#004040" text="#ffffff" link="#eeffee" vlink="#dddddd" alink="#ff0000">
+    <button id="post-button" onclick="post()">投稿</button> <button id="search-page-button">検索</button>
+    <script src="search.js"></script>
+    <div id="posts"></div>
+  </body>
+</html>
