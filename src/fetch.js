@@ -22,6 +22,7 @@ function initialFetchBBS () {
       for(var pre of body.split('<HR>').slice(4,-2)){
         pre = findYouTube(pre);
         pre = findImage(pre);
+        pre = replace(pre);
         $('#posts').append('<HR>' + pre);
       }
     });
@@ -65,6 +66,7 @@ function fetchBBS () {
       pc = body.match(/name="pc" value="(\d+)"/)[1];
       post_id = body.match(/name="p" value="(\d+)"/)[1];
       for(var pre of body.split('<HR>').slice(4,-2).reverse()){
+        pre = replace(pre);
         pre = findYouTube(pre);
         pre = findImage(pre);
         $('#posts').prepend('<HR>' + pre);
@@ -104,6 +106,14 @@ function findImage(pre) {
     bufArray.push(lines[i]);
   }
   return bufArray.join('\r')
+}
+
+function replace (pre) {
+  return pre.replace(/&amp;#(\d+|x[0-9a-fA-F]+);/g, replaceCharacterEntity);
+}
+
+function replaceCharacterEntity (str, p1) {
+  return String.fromCharCode(p1[0] === "x" ? parseInt(p1.slice(1), 16) : p1);
 }
 
 window.onload = function() {
