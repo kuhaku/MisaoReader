@@ -58,6 +58,6 @@ typings/
 .env
 
 # binary
-MisaoViewer-darwin-x64
-MisaoViewer-win32-x64
+MisaoReader-darwin-x64
+MisaoReader-win32-x64
 *.zip
