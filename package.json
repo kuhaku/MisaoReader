@@ -1,6 +1,6 @@
 {
   "name": "misao-viewer",
-  "version": “0.0.2”,
+  "version": "0.0.2",
   "main": "main.js",
   "dependencies": {
     "electron-in-page-search": "^1.2.3",
