@@ -60,3 +60,4 @@ typings/
 # binary
 MisaoViewer-darwin-x64
 MisaoViewer-win32-x64
+*.zip
