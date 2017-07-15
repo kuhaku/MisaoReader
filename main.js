@@ -5,13 +5,18 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
 
+const Menu = electron.Menu
+const MenuItem = electron.MenuItem
+const menu = new Menu()
+menu.append(new MenuItem({ label: 'Copy', accelerator: 'CmdOrCtrl+C'}));
+
 let mainWindow;
 
 
 app.once('window-all-closed',function() { app.quit(); });
 
 function createWindow () {
-  mainWindow = new BrowserWindow({width: 400, height: 1000, 'node-integration': false});
+  mainWindow = new BrowserWindow({width: 400, height: 1000});
 
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
@@ -20,7 +25,7 @@ function createWindow () {
   }));
 
   // デバッグ用
-  //mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // メインウィンドウが閉じられたときの処理
   mainWindow.on('closed', function () {
@@ -31,6 +36,12 @@ function createWindow () {
     mainWindow.webContents.openDevTools({mode: 'detach'});
   }
 }
+
+app.on('browser-window-created', function(event, win) {
+  win.webContents.on('context-menu', function(e, params) {
+    menu.popup(win, params.x, params.y)
+  })
+})
 
 //  初期化が完了した時の処理
 app.on('ready', createWindow);
