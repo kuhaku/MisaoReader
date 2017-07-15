@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# binary
+MisaoViewer-darwin-x64
+MisaoViewer-win32-x64
