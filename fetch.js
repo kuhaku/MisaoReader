@@ -78,9 +78,14 @@ function fetchBBS () {
 };
 
 function findYouTube(pre) {
-  var youtube_id = pre.match(/www.youtube.com\/watch\?v=([0-9a-zA-Z_]+)/);
+  var youtube_id = pre.match(/www.youtube.com\/watch\?v=([0-9a-zA-Z_\-]+)/);
   if (youtube_id) {
     pre += '<iframe width="360" height="215" src="https://www.youtube.com/embed/' + youtube_id[1] + '" frameborder="0" allowfullscreen></iframe>';
+  } else if (pre.match(/youtu.be\/([0-9a-zA-Z_]+)/)){
+    youtube_id = pre.match(/youtu.be\/([0-9a-zA-Z_\-]+)/)
+    if (youtube_id){
+      pre += '<iframe width="360" height="215" src="https://www.youtube.com/embed/' + youtube_id[1] + '" frameborder="0" allowfullscreen></iframe>';
+    }
   }
   return pre
 }
@@ -96,6 +101,11 @@ function findImage(pre) {
       let twimg_id = lines[i].match(/pbs.twimg.com\/media\/([0-9a-zA-Z]+)\.jpg/);
       if (twimg_id) {
         lines[i] = '<img referrerpolicy="no-referrer" class="thumbnail" src="https://pbs.twimg.com/media/' + twimg_id[1] + '.jpg:thumb">' + lines[i];
+      }
+    } else if (lines[i].match(/twitpic.com\/[0-9a-zA-Z_]+/)) {
+      let twitpic = lines[i].match(/twitpic.com\/[0-9a-zA-Z_]+/);
+      if (twitpic) {
+        lines[i] = '<img referrerpolicy="no-referrer" class="thumbnail" src="http://' + twitpic + '">' + lines[i];
       }
     } else if (lines[i].match(/(https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+(jpg|gif|png))/)) {
       let image = lines[i].match(/(https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+(jpg|gif|png))/);
