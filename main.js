@@ -8,7 +8,7 @@ const url = require('url');
 const Menu = electron.Menu
 const MenuItem = electron.MenuItem
 const menu = new Menu()
-menu.append(new MenuItem({ label: 'Copy', accelerator: 'CmdOrCtrl+C'}));
+menu.append(new MenuItem({ label: 'Copy', role: 'copy', accelerator: 'CmdOrCtrl+C'}));
 
 let mainWindow;
 
