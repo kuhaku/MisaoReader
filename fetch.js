@@ -78,7 +78,7 @@ function fetchBBS () {
 };
 
 function findYouTube(pre) {
-  var youtube_id = pre.match(/www.youtube.com\/watch\?v=([0-9a-zA-Z_\-]+)/);
+  var youtube_id = pre.match(/.youtube.com\/watch\?v=([0-9a-zA-Z_\-]+)/);
   if (youtube_id) {
     pre += '<iframe width="360" height="215" src="https://www.youtube.com/embed/' + youtube_id[1] + '" frameborder="0" allowfullscreen></iframe>';
   } else if (pre.match(/youtu.be\/([0-9a-zA-Z_]+)/)){
