@@ -16,7 +16,7 @@ function initialFetchBBS () {
     res.on('end', (res) => {
       var body = iconv.decode(Buffer.concat(chunks), 'cp932');
       body = body.replace(/<!--[\s\S]*?-->/g, '').replace(/\r\n/g, '\r').replace(/\n/g, '\r');
-      body = body.replace(/<A /g, '<A target="link" ');
+      body = body.replace(/<A /g, '<A target="_blank" ');
       pc = body.match(/name="pc" value="(\d+)"/)[1];
       post_id = body.match(/name="p" value="(\d+)"/)[1];
       for(var pre of body.split('<HR>').slice(4,-2)){
@@ -62,7 +62,7 @@ function fetchBBS () {
     res.on('end', (res) => {
       var body = iconv.decode(Buffer.concat(chunks), 'cp932');
       body = body.replace(/<!--[\s\S]*?-->/g, '').replace(/\r\n/g, '\r').replace(/\n/g, '\r');
-      body = body.replace(/<A /, '<A target="link" ')
+      body = body.replace(/<A /, '<A target="_blank" ')
       pc = body.match(/name="pc" value="(\d+)"/)[1];
       post_id = body.match(/name="p" value="(\d+)"/)[1];
       for(var pre of body.split('<HR>').slice(4,-2).reverse()){
