@@ -1,7 +1,7 @@
 const http = require('http');
 const querystring = require('querystring');
 const iconv = require('iconv-lite');
-var $ = jQuery = require("./node_modules/jquery/dist/jquery.slim.min.js");
+var $ = jQuery = require("../node_modules/jquery/dist/jquery.slim.min.js");
 var pc = '0'
 var post_id = '0'
 
