@@ -9,7 +9,7 @@ const Menu = electron.Menu
 const MenuItem = electron.MenuItem
 const menu = new Menu()
 menu.append(new MenuItem({ label: 'Copy', role: 'copy', accelerator: 'CmdOrCtrl+C'}));
-
+menu.append(new MenuItem({ label: 'Paste', role: 'paste', accelerator: 'CmdOrCtrl+V'}));
 let mainWindow;
 
 
