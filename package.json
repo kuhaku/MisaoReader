@@ -10,21 +10,23 @@
     "jquery": "^3.2.1"
   },
   "homepage": "https://github.com/kuhaku/MisaoReader",
-  "author": {
-    "name": "kuhaku",
-    "email": "kuhaku.mami@gmail.com"
-  },
+  "author": "kuhaku <kuhaku.mami@gmail.com>",
   "repository": {
-      "type": "git",
-      "url": "git://github.com/kuhaku/MisaoReader.git"
-    },
+    "type": "git",
+    "url": "git://github.com/kuhaku/MisaoReader.git"
+  },
   "bugs": {
-      "url": "https://github.com/kuhaku/MisaoReader/issues"
-    },
+    "url": "https://github.com/kuhaku/MisaoReader/issues"
+  },
   "licenses": [
     {
-          "type": "WTFPL",
-          "url": "https://raw.githubusercontent.com/kuhaku/MisaoReader/master/LICENSE"
-        }
-  ]
+      "type": "WTFPL",
+      "url": "https://raw.githubusercontent.com/kuhaku/MisaoReader/master/LICENSE"
+    }
+  ],
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "WTFPL"
 }
