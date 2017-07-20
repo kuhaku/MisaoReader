@@ -10,9 +10,14 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body bgcolor="#004040" text="#ffffff" link="#eeffee" vlink="#dddddd" alink="#ff0000">
-    <button id="post-button" onclick="post()">投稿</button> <button id="search-page-button">検索</button>
+    <header>
+    <button><a href="#top">最上部</a></button>
+    <button id="post-button" onclick="post()">投稿</button>
+    <button id="search-page-button">検索</button>
     <script src="search.js"></script>
     <script type="text/javascript" src="../node_modules/electron-open-link-in-browser/build/electron-open-link-in-browser.js"></script>
+    </header>
+    <a name="top"></a>
     <div id="posts"></div>
   </body>
 </html>

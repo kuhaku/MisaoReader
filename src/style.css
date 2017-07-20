@@ -1,7 +1,15 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  width:100%;
+  height:100%;
+}
+
 pre {
   white-space: pre-wrap;
   word-wrap: break-all;
 }
+
 .thumbnail {
   width: 80px;
   max-height: 200px;
@@ -19,11 +27,16 @@ img:hover {
   image-orientation: from-image;
 }
 
-#footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
+button a{
+  color:black;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  width: 100%;
 }
 /*
  * .electron-in-page-search-window is a class specified to default
