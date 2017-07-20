@@ -97,8 +97,8 @@ function findImage(pre) {
     let misao_id = lines[i].match(/misao.on.arena.ne.jp\/c\/up\/misao([\d]+)\.jpg/);
     if (misao_id) {
       lines[i] = '<img referrerpolicy="no-referrer" class="thumbnail" src="http://misao.on.arena.ne.jp/c/up/pixy_misao' + misao_id[1] + '.jpg">' + lines[i];
-    } else if (lines[i].match(/pbs.twimg.com\/media\/([0-9a-zA-Z]+)\.jpg/)) {
-      let twimg_id = lines[i].match(/pbs.twimg.com\/media\/([0-9a-zA-Z]+)\.jpg/);
+    } else if (lines[i].match(/pbs.twimg.com\/media\/([0-9a-zA-Z_]+)\.jpg/)) {
+      let twimg_id = lines[i].match(/pbs.twimg.com\/media\/([0-9a-zA-Z_]+)\.jpg/);
       if (twimg_id) {
         lines[i] = '<img referrerpolicy="no-referrer" class="thumbnail" src="https://pbs.twimg.com/media/' + twimg_id[1] + '.jpg:thumb">' + lines[i];
       }
