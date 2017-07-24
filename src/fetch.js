@@ -2,6 +2,7 @@ const http = require('http');
 const querystring = require('querystring');
 const iconv = require('iconv-lite');
 var $ = jQuery = require('../node_modules/jquery/dist/jquery.slim.min.js');
+const IMG_TEMPLATE = '<img referrerpolicy="no-referrer" class="thumbnail" src="';
 var pc = '0';
 var post_id = '0';
 
@@ -96,21 +97,21 @@ function findImage(pre) {
     for (let i = 0; i < lines.length; i++ ) {
         let misao_id = lines[i].match(/misao.on.arena.ne.jp\/c\/up\/misao([\d]+)\.jpg/);
         if (misao_id) {
-            lines[i] = '<img referrerpolicy="no-referrer" class="thumbnail" src="http://misao.on.arena.ne.jp/c/up/pixy_misao' + misao_id[1] + '.jpg">' + lines[i];
+            lines[i] = IMG_TEMPLATE + 'http://misao.on.arena.ne.jp/c/up/pixy_misao' + misao_id[1] + '.jpg">' + lines[i];
         } else if (lines[i].match(/pbs.twimg.com\/media\/([0-9a-zA-Z_]+)\.jpg/)) {
             let twimg_id = lines[i].match(/pbs.twimg.com\/media\/([0-9a-zA-Z_]+)\.jpg/);
             if (twimg_id) {
-                lines[i] = '<img referrerpolicy="no-referrer" class="thumbnail" src="https://pbs.twimg.com/media/' + twimg_id[1] + '.jpg:thumb">' + lines[i];
+                lines[i] = IMG_TEMPLATE + 'https://pbs.twimg.com/media/' + twimg_id[1] + '.jpg:thumb">' + lines[i];
             }
         } else if (lines[i].match(/twitpic.com\/[0-9a-zA-Z_]+/)) {
             let twitpic = lines[i].match(/twitpic.com\/[0-9a-zA-Z_]+/);
             if (twitpic) {
-                lines[i] = '<img referrerpolicy="no-referrer" class="thumbnail" src="http://' + twitpic + '">' + lines[i];
+                lines[i] = IMG_TEMPLATE + 'http://' + twitpic + '">' + lines[i];
             }
         } else if (lines[i].match(/(https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+(jpg|gif|png))/)) {
-            let image = lines[i].match(/(https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+(jpg|gif|png))/);
+            let image = lines[i].match(/(https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+\.(jpg|gif|png))/);
             if (image) {
-                lines[i] = '<img referrerpolicy="no-referrer" class="thumbnail" src="' + image[1] + '">' + lines[i];
+                lines[i] = IMG_TEMPLATE + image[1] + '">' + lines[i];
             }
         }
         bufArray.push(lines[i]);
