@@ -28,5 +28,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "files": [
+    "README.md",
+    "main.js",
+    "package.json",
+    "src"
+  ]
 }
