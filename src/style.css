@@ -7,7 +7,7 @@ html, body{
 
 pre {
   white-space: pre-wrap;
-  word-wrap: break-all;
+  word-break: break-all;
 }
 
 .thumbnail {
