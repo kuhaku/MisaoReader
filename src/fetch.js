@@ -43,7 +43,7 @@ function fetchBBS () {
         midokureload: iconv.encode('投稿／リロード', 'cp932')
     });
     const urlOpts = {
-        host: 'misao.on.arena.ne.jp',
+        host: 'misao.mixh.jp',
         path: '/cgi-bin/bbs.cgi',
         method: 'POST',
         headers: {
