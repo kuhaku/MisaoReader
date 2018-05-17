@@ -1,13 +1,16 @@
 {
   "name": "misao-reader",
   "description": "strangeworld@misao reader",
-  "version": "0.0.5.2",
+  "version": "0.0.6",
   "main": "main.js",
   "dependencies": {
+    "electron": "^2.0.1",
     "electron-in-page-search": "^1.2.3",
     "electron-open-link-in-browser": "^1.0.2",
+    "electron-packager": "^12.0.2",
     "iconv-lite": "^0.4.18",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "npm": "^6.0.1"
   },
   "homepage": "https://github.com/kuhaku/MisaoReader",
   "author": "kuhaku <kuhaku.mami@gmail.com>",
