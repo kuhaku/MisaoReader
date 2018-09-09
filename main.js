@@ -4,12 +4,10 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
-
 const Menu = electron.Menu;
 const MenuItem = electron.MenuItem;
 const menu = new Menu();
-menu.append(new MenuItem({ label: 'Copy', role: 'copy', accelerator: 'CmdOrCtrl+C'}));
-menu.append(new MenuItem({ label: 'Paste', role: 'paste', accelerator: 'CmdOrCtrl+V'}));
+
 let mainWindow;
 
 
@@ -23,6 +21,26 @@ function createWindow () {
         protocol: 'file:',
         slashes: true
     }));
+
+    // Create the Application's main menu
+    var template = [{
+        label: "Application",
+        submenu: [
+            { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+        ]}, {
+        label: "Edit",
+        submenu: [
+            { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+            { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+            { type: "separator" },
+            { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+            { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+            { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+            { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+        ]}
+    ];
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 
     // デバッグ用
     // mainWindow.webContents.openDevTools();
@@ -43,7 +61,7 @@ app.on('browser-window-created', function(event, win) {
     });
 });
 
-//    初期化が完了した時の処理
+// 初期化が完了した時の処理
 app.on('ready', createWindow);
 
 // 全てのウィンドウが閉じたときの処理
