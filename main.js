@@ -10,6 +10,8 @@ const menu = new Menu();
 
 let mainWindow;
 
+menu.append(new MenuItem({ label: 'Copy', role: 'copy', accelerator: 'CmdOrCtrl+C'}));
+menu.append(new MenuItem({ label: 'Paste', role: 'paste', accelerator: 'CmdOrCtrl+V'}));
 
 app.once('window-all-closed',function() { app.quit(); });
 
