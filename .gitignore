@@ -61,3 +61,4 @@ typings/
 MisaoReader-darwin-x64
 MisaoReader-win32-x64
 *.zip
+*.dmg

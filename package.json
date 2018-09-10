@@ -1,7 +1,7 @@
 {
   "name": "misao-reader",
   "description": "strangeworld@misao reader",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "main.js",
   "dependencies": {
     "electron": "^2.0.8",
