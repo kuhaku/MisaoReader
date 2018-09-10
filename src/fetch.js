@@ -43,8 +43,7 @@ function fetchBBS () {
         midokureload: iconv.encode('投稿／リロード', 'cp932')
     });
     const URL = $('[name="bbsurl"] option:selected').val();
-    const host = URL.split('/')[2]
-    console.log(host)
+    const host = URL.split('/')[2];
     const urlOpts = {
         host: host,
         path: '/cgi-bin/bbs.cgi',

@@ -6,7 +6,9 @@
     <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="fetch.js"></script>
     <script src="link.js"></script>
-    <script>function post(){window.open('http://misao.mixh.jp/cgi-bin/bbs.cgi', '');}</script>
+    <script>function post(){const num = document.url_form.bbsurl.selectedIndex;
+                            const url = document.url_form.bbsurl.options[num].value;
+                            window.open(url, '');}</script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body bgcolor="#004040" text="#ffffff" link="#eeffee" vlink="#dddddd" alink="#ff0000">
@@ -14,7 +16,7 @@
       <button><a href="#top">最上部</a></button>
       <button id="post-button" onclick="post()">投稿</button>
       <button id="search-page-button">検索</button>
-      <form id="url_form">
+      <form id="url_form" name="url_form">
         <select name="bbsurl">
             <option value="http://misao.mixh.jp/cgi-bin/bbs.cgi" selected>http://misao.mixh.jp/cgi-bin/bbs.cgi</option>
             <option value="http://misao.on.arena.ne.jp/cgi-bin/bbs.cgi">http://misao.on.arena.ne.jp/cgi-bin/bbs.cgi</option>
