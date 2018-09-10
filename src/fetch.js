@@ -7,7 +7,7 @@ var pc = '0';
 var post_id = '0';
 
 function initialFetchBBS () {
-    const URL = 'http://misao.on.arena.ne.jp/cgi-bin/bbs.cgi';
+    const URL = $('[name="bbsurl"] option:selected').val();
     http.get(URL, (res) => {
         var chunks = [];
         res.on('data', (chunk) => {
@@ -42,8 +42,11 @@ function fetchBBS () {
         g: 'checked',
         midokureload: iconv.encode('投稿／リロード', 'cp932')
     });
+    const URL = $('[name="bbsurl"] option:selected').val();
+    const host = URL.split('/')[2]
+    console.log(host)
     const urlOpts = {
-        host: 'misao.mixh.jp',
+        host: host,
         path: '/cgi-bin/bbs.cgi',
         method: 'POST',
         headers: {

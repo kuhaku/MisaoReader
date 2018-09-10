@@ -5,6 +5,10 @@ html, body{
   height:100%;
 }
 
+form {
+  display: inline;
+}
+
 pre {
   white-space: pre-wrap;
   word-break: break-all;
